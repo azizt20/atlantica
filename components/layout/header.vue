@@ -2,7 +2,7 @@
   <header class="header bg-white">
     <div class="container mx-auto">
       <nav
-        class="flex items-center justify-between p-[22px] lg:px-8"
+        class="flex items-center justify-between p-[20px] lg:px-0"
         aria-label="Global"
       >
         <div class="flex lg:flex-1">
@@ -104,8 +104,8 @@
 
 <script setup>
 import { ref } from "vue";
-import Logo from "../logo.vue";
-import Locale from "../locale.vue";
+import Logo from "@/components/common/logo.vue";
+import Locale from "@/components/common/locale.vue";
 
 import { Dialog, DialogPanel } from "@headlessui/vue";
 
@@ -125,7 +125,5 @@ const mobileMenuOpen = ref(false);
 .header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.1);
-
- 
 }
 </style>

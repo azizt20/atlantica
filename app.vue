@@ -8,8 +8,8 @@
   </div>
 </template>
 <script setup>
-import Header from "./components/common/header.vue";
-import Footer from "./components/common/footer.vue";
+import Header from "./components/layout/header.vue";
+import Footer from "./components/layout/footer.vue";
 </script>
 
 <style lang="scss" scoped>
