@@ -60,6 +60,7 @@ const changeLocale = (el) => {
 .locale {
   background: rgba(22, 20, 19, 0.1);
   border-radius: 2px;
+  z-index: 30;
   @apply w-[110px] h-9 flex items-center justify-center relative text-black font-medium transition-all;
 
   &__value {

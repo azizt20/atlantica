@@ -87,6 +87,7 @@
                   v-for="item in navigation"
                   :key="item.name"
                   :to="item.href"
+                  @click="mobileMenuOpen = false"
                   class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >{{ item.name }}
                 </router-link>
@@ -121,7 +122,7 @@ const navigation = [
 const mobileMenuOpen = ref(false);
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.1);
