@@ -75,7 +75,7 @@
         <swiper-slide
           v-for="(review, i) in reviews"
           :key="i"
-          :class="mobile ? '!w-[308px]' : ''"
+          class="slide"
         >
           <div
             class="bg-white border border-[#1614131A] rounded-lg lg:pt-[17px] lg:px-[25px] lg:pb-9 py-[14px] px-[17px]"
@@ -182,3 +182,10 @@ export default {
 <script setup>
 const { data: reviews } = await apiRequest("review");
 </script>
+<style lang="scss" scoped>
+.slide {
+  @media screen and (max-width: 768px) {
+    max-width: 300px !important;
+  }
+}
+</style>
