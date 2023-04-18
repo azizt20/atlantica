@@ -1,5 +1,5 @@
 <template>
-  <section id="reviews" class="pl-[18px] lg:pr-[18px]">
+  <section id="reviews" class="px-[18px]">
     <div class="container mx-auto">
       <div class="flex items-center w-full md:mb-[52px] mb-8 justify-center">
         <h3 class="xl:text-5xl md:text-4xl text-2xl text-center font-semibold">
@@ -63,7 +63,7 @@
             spaceBetween: 12,
           },
           768: {
-            slidesPerView: 'auto',
+            slidesPerView: '2',
             spaceBetween: 18,
           },
           1024: {
