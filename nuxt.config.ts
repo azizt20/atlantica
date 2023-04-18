@@ -16,4 +16,10 @@ export default defineNuxtConfig({
       build: {
         transpile: ["@heroicons/vue"],
       },
+      runtimeConfig: {
+        public: {
+          apiBase: process.env.NUXT_API_BASE_URL || "",
+          baseUrl: process.env.NUXT_BASE_URL || "",
+        }
+      }
 })

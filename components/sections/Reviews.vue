@@ -72,15 +72,19 @@
           },
         }"
       >
-        <swiper-slide v-for="i in 6" :key="i" :class="mobile ? '!w-[308px]' : ''">
+        <swiper-slide
+          v-for="(review, i) in reviews"
+          :key="i"
+          class="slide"
+        >
           <div
             class="bg-white border border-[#1614131A] rounded-lg lg:pt-[17px] lg:px-[25px] lg:pb-9 py-[14px] px-[17px]"
           >
-            <div class="flex items-center lg:space-x-6 space-x-3">
+            <div class="flex items-center lg:space-x-[18px] space-x-3">
               <div class="relative">
                 <img
-                  src="https://picsum.photos/200"
-                  alt="Дарлин Робертсон"
+                  :src="review.image"
+                  :alt="review[`name_${locale.alpha}`]"
                   class="lg:w-[58px] w-[46px] aspect-square rounded-full"
                 />
                 <span
@@ -100,22 +104,23 @@
                 </span>
               </div>
               <div>
-                <p class="font-semibold text-black text-sm lg:text-base">Дарлин Робертсон</p>
-                <p class="text-xs lg:text-[13px] font-light text-black">
-                  Генеральный директор Globex
+                <p class="font-semibold text-black text-sm lg:text-base">
+                  {{ review[`name_${locale.alpha}`] }}
+                </p>
+                <p
+                  class="text-xs lg:text-[13px] font-light text-black mt-0.5 opacity-70"
+                >
+                  {{ review[`position_${locale.alpha}`] }}
                 </p>
               </div>
             </div>
             <p class="mt-6 text-black text-opacity-70 text-xs lg:text-sm">
-              Это значит, что мы берем на себя все бизнес-процессы, требующие
-              времени и привлекаем большое количество квалифицированного
-              персонала! Имея команду квалифицированных менеджеров и базу
-              готовых сотрудников по всем направлениям.
+              {{ review[`description_${locale.alpha}`] }}
             </p>
           </div>
         </swiper-slide>
         <div class="mt-3 w-full">
-          <div class="swiper-pagination pagination" style=""></div>
+          <div class="swiper-pagination pagination"></div>
         </div>
       </swiper>
     </div>
@@ -161,19 +166,26 @@ export default {
       }
       return false;
     },
+    locale() {
+      let storageLocale;
+      if (process.client) {
+        storageLocale = localStorage.getItem("locale")
+          ? JSON.parse(localStorage.getItem("locale"))
+          : undefined;
+      }
+      return storageLocale || { name: "Русский", alpha: "ru" };
+    },
   },
 };
 </script>
 
+<script setup>
+const { data: reviews } = await apiRequest("review");
+</script>
 <style lang="scss" scoped>
-.slider-shadow {
-  box-shadow: 0px 0px 150px rgba(39, 19, 9, 0.1);
-}
-.pagination {
-  bottom: auto;
-  top: auto;
-  left: auto;
-  position: unset;
-  --swiper-theme-color: #cc4400;
+.slide {
+  @media screen and (max-width: 768px) {
+    max-width: 300px !important;
+  }
 }
 </style>
