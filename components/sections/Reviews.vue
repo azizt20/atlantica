@@ -3,7 +3,7 @@
     <div class="container mx-auto">
       <div class="flex items-center w-full md:mb-[52px] mb-8 justify-center">
         <h3 class="xl:text-5xl md:text-4xl text-2xl text-center font-semibold">
-          Отзывы клиентов
+          {{ $t('h-rewiews') }}
         </h3>
         <div class="flex items-center space-x-5" v-if="false">
           <button
@@ -72,11 +72,7 @@
           },
         }"
       >
-        <swiper-slide
-          v-for="(review, i) in reviews"
-          :key="i"
-          class="slide"
-        >
+        <swiper-slide v-for="(review, i) in reviews" :key="i" class="slide">
           <div
             class="bg-white border border-[#1614131A] rounded-lg lg:pt-[17px] lg:px-[25px] lg:pb-9 py-[14px] px-[17px]"
           >
@@ -84,7 +80,7 @@
               <div class="relative">
                 <img
                   :src="review.image"
-                  :alt="review[`name_${locale.alpha}`]"
+                  :alt="review[`name_${$i18n.locale}`]"
                   class="lg:w-[58px] w-[46px] aspect-square rounded-full"
                 />
                 <span
@@ -105,17 +101,17 @@
               </div>
               <div>
                 <p class="font-semibold text-black text-sm lg:text-base">
-                  {{ review[`name_${locale.alpha}`] }}
+                  {{ review[`name_${$i18n.locale}`] }}
                 </p>
                 <p
                   class="text-xs lg:text-[13px] font-light text-black mt-0.5 opacity-70"
                 >
-                  {{ review[`position_${locale.alpha}`] }}
+                  {{ review[`position_${$i18n.locale}`] }}
                 </p>
               </div>
             </div>
             <p class="mt-6 text-black text-opacity-70 text-xs lg:text-sm">
-              {{ review[`description_${locale.alpha}`] }}
+              {{ review[`description_${$i18n.locale}`] }}
             </p>
           </div>
         </swiper-slide>
@@ -165,15 +161,6 @@ export default {
         return window.innerWidth < 768;
       }
       return false;
-    },
-    locale() {
-      let storageLocale;
-      if (process.client) {
-        storageLocale = localStorage.getItem("locale")
-          ? JSON.parse(localStorage.getItem("locale"))
-          : undefined;
-      }
-      return storageLocale || { name: "Русский", alpha: "ru" };
     },
   },
 };

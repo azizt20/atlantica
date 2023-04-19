@@ -1,7 +1,7 @@
 <template>
   <button class="locale group">
     <div class="locale__value">
-      {{ locale.name }}
+      {{ language.name }}
       <svg
         width="12"
         height="6"
@@ -35,26 +35,29 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 
-let storageLocale;
+const { t, locale } = useI18n();
+
+const language = ref({ name: "Русский", alpha: "ru" });
+
+const changeLocale = (el) => {
+  language.value = el;
+  locale.value = el.alpha;
+  localStorage.setItem("locale", JSON.stringify(el));
+};
 
 if (process.client) {
-  storageLocale = localStorage.getItem("locale")
-    ? JSON.parse(localStorage.getItem("locale"))
-    : undefined;
+  if (localStorage.getItem("locale")) {
+    let storageLocale = JSON.parse(localStorage.getItem("locale"));
+    storageLocale.alpha == language.alpha || changeLocale(storageLocale);
+  }
 }
 
 const locales = [
   { name: "Русский", alpha: "ru" },
   { name: "English", alpha: "en" },
 ];
-
-const locale = ref(storageLocale || { name: "Русский", alpha: "ru" });
-
-const changeLocale = (el) => {
-  locale.value = el;
-  localStorage.setItem("locale", JSON.stringify(el));
-};
 </script>
 <style lang="scss" scoped>
 .locale {
@@ -75,8 +78,7 @@ const changeLocale = (el) => {
   &__dropdown {
     background: rgba(22, 20, 19, 0.1);
     border-radius: 2px;
-  @apply w-[110px]  py-2 absolute top-full border-t border-white text-black font-medium;
-
+    @apply w-[110px]  py-2 absolute top-full border-t border-white text-black font-medium;
   }
 }
 </style>

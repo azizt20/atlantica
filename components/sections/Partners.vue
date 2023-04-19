@@ -1,9 +1,10 @@
 <template>
-  <section id="reviews" class="pl-[18px] lg:pr-[18px]">
+  <section id="partners" class="pl-[18px] lg:pr-[18px]">
     <div class="container mx-auto">
       <div class="flex items-center w-full md:mb-[52px] mb-8 justify-center">
         <h3 class="xl:text-5xl md:text-4xl text-2xl text-center font-semibold">
-          Компании, которые нам доверяют
+          {{ $t('h-companies') }}
+
         </h3>
       </div>
       <swiper

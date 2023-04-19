@@ -1,8 +1,8 @@
 <template>
-  <header class="header bg-white">
+  <header class="header bg-white px-[18px]">
     <div class="container mx-auto">
       <nav
-        class="flex items-center justify-between p-[20px] lg:px-0"
+        class="flex items-center justify-between py-[20px] lg:px-0"
         aria-label="Global"
       >
         <div class="flex lg:flex-1">
@@ -38,7 +38,8 @@
             :key="item.name"
             :to="item.href"
             class="font-semibold leading-6 text-gray-900"
-            >{{ item.name }}
+            >
+            {{ item.name }}
           </router-link>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -111,12 +112,12 @@ import Locale from "@/components/common/locale.vue";
 import { Dialog, DialogPanel } from "@headlessui/vue";
 
 const navigation = [
-  { name: "О компании", href: "/#about" },
+  { name: "О компании", href: "/about-us" },
   { name: "Услуги", href: "/#services" },
   { name: "Работы", href: "/works" },
   { name: "Новости", href: "/news" },
   { name: "Партнеры", href: "/#partners" },
-  { name: "Контакты", href: "/#contact" },
+  { name: "Контакты", href: "/#footer" },
 ];
 
 const mobileMenuOpen = ref(false);

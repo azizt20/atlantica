@@ -1,7 +1,21 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { resolve, dirname } from 'node:path'
+import { fileURLToPath } from 'url'
+import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
+
 export default defineNuxtConfig({
+    vite: {
+        plugins: [
+          VueI18nVitePlugin({
+            include: [
+              resolve(dirname(fileURLToPath(import.meta.url)), './locales/*.json')
+            ]
+          })
+        ]
+      },
   modules: [
     '@pinia/nuxt',
+    // '@nuxtjs/i18n',
   ],
     css: [
         // SCSS file in the project
@@ -21,5 +35,5 @@ export default defineNuxtConfig({
           apiBase: process.env.NUXT_API_BASE_URL || "",
           baseUrl: process.env.NUXT_BASE_URL || "",
         }
-      }
+      },
 })

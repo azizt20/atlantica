@@ -4,20 +4,20 @@
       <h3
         class="xl:text-5xl md:text-4xl text-2xl text-center md:mb-[52px] mb-8 font-semibold"
       >
-        Наши новости
-      </h3>
+        {{ $t('n-title') }}
 
+      </h3>
       <div
         class="grid 2xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 md:gap-7 sm:gap-4 gap-y-3 gap-x-2"
       >
-        <NewsCard v-for="i in 6" :key="i" />
+        <NewsCard :news="el" v-for="el in news" :key="el.id" />
       </div>
 
       <router-link
         to="/news"
         class="w-40 h-10 flex items-center justify-center border border-primary rounded-sm text-primary font-medium mx-auto mt-6 md:mt-10 lg:mt-11"
       >
-      Все новости
+        Все новости
 
         <svg
           class="ml-2"
@@ -41,5 +41,7 @@
 </template>
 <script setup>
 import NewsCard from "../news/NewsCard.vue";
+const { data: newsData } = await apiRequest(`news/`);
+const { count, results: news } = newsData.value;
 </script>
 <style lang=""></style>

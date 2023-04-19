@@ -1,15 +1,12 @@
 <template>
   <section class="pb-24">
+    <!-- {{ work }} -->
     <div class="bg-[#F4F4F4] px-[18px]">
       <div
         class="grid md:grid-cols-12 md:gap-10 gap-10 container mx-auto md:py-28 py-14"
       >
         <div class="xl:col-span-5 col-span-6">
-          <img
-            src="@/assets/image/temporarily/work-detail.png"
-            alt=""
-            class="w-full"
-          />
+          <img :src="work.image" alt="" class="w-full" />
         </div>
         <div class="xl:col-span-7 col-span-6 flex items-center justify-center">
           <div class="">
@@ -21,13 +18,26 @@
               class="grid md:grid-cols-3 grid-cols-2 md:gap-5 gap-3 text-sm sm:text-base"
             >
               <div class="">Клиент :</div>
-              <div class="md:col-span-2">David Warner</div>
-              <div class="">Категория :</div>
-              <div class="md:col-span-2">Шитье</div>
+              <div class="md:col-span-2">
+                {{ work["client_" + $i18n.locale] }}
+              </div>
+              <div v-if="work.service.length" class="">Категория :</div>
+              <div v-if="work.service.length" class="md:col-span-2">
+                <span v-for="(el, i) in work.service" :key="i">
+                  <template v-if="i && i < work.service.length">, </template>
+                  <router-link class="hover:text-primary" :to="`/services/${el.id}`">
+                    {{ el["name_" + $i18n.locale] }}
+                  </router-link>
+                </span>
+              </div>
               <div class="">Дата :</div>
-              <div class="md:col-span-2">12 декабря 2022 г.</div>
+              <div class="md:col-span-2">
+                {{ work.date }}
+              </div>
               <div class="">статус :</div>
-              <div class="md:col-span-2">Завершенный</div>
+              <div class="md:col-span-2">
+                {{ work.status }}
+              </div>
             </div>
           </div>
         </div>
@@ -36,18 +46,16 @@
 
     <div class="px-[18px] md:py-20 py-14">
       <div class="container mx-auto">
-        <h3 class="text-5xl mb-5">V-HTML</h3>
-        <p>
-          Duis semper lacus scelerisque, aliquam leo quis, porttitor leo. Etiam
-          lobortis dapibus libero vel porttitor. Nulla tempor elit nec feugiat
-          tempus.Phasellus at quam id elit hendrerit semper feugiat id nunc.
-          Morbi quis justo velit. Duis semper lacus scelerisque, aliquam leo
-          quis, porttitor leo. Fusce lectus ex, pretium efficitur suscipit sed,
-          faucibus vel elit Integer adipiscing erat eget risus sollicitudin
-          pellentesque non erat. Maecenas nibh dolor malesuada sagittis accumsan
-          ipsum. Pellentesque ultrices ultrices sapien, nec tincidunt nunc
-          posuere.
-        </p>
+        <h2 class="text-3xl font-semibold mb-3 mt-5">
+          {{ work["name_" + $i18n.locale] }}
+        </h2>
+
+        <vHtml :html="work['description_' + $i18n.locale]" />
+        <!-- <div
+          class="unreset"
+          style="all: revert"
+          v-html="work['description_' + $i18n.locale]"
+        ></div> -->
       </div>
     </div>
     <div class="pl-[18px] lg:pr-[18px]">
@@ -126,11 +134,11 @@
           }"
         >
           <swiper-slide
-            v-for="(work, i) in work.similar_projects"
-            :key="i"
+            v-for="work in work.similar_projects"
+            :key="work.id"
             class="slide"
           >
-            <WorkCard />
+            <WorkCard :project="work" />
           </swiper-slide>
           <div class="mt-3 w-full">
             <div class="swiper-pagination pagination"></div>
@@ -194,8 +202,24 @@ export default {
 </script>
 <script setup>
 import WorkCard from "@/components/works/WorkCard.vue";
+import vHtml from "@/components/common/vHtml.vue";
 import { useRouter } from "vue-router";
+
 const router = useRouter();
+const service = ref({});
+const fetchData = async () => {
+  let { data } = await apiRequest(
+    `services/${router.currentRoute.value.params.slug}/`
+  );
+  service.value = data.value;
+};
+fetchData()
+
+watch(
+  () => router.currentRoute.value.params.slug,
+  () => fetchData(),
+  { deep: true }
+);
 const { data: work } = await apiRequest(
   `projects/${router.currentRoute.value.params.slug}`
 );

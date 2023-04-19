@@ -1,14 +1,17 @@
 <template>
-  <div class="bg-dark text-white font-normal text-opacity-60 text-sm py-11 px-[18px]">
-    <div class="container mx-auto  border-b border-white border-opacity-10">
+  <section
+    id="footer"
+    class="bg-dark text-white font-normal text-opacity-60 text-sm py-11 px-[18px]"
+  >
+    <div class="container mx-auto border-b border-white border-opacity-10">
       <div class="grid md:grid-cols-6 sm:grid-cols-2 pb-8 gap-8">
-        <div class="md:col-span-3 sm:col-span-2 md:w-3/4 sm:block flex items-center justify-between w-full">
+        <div
+          class="md:col-span-3 sm:col-span-2 md:w-3/4 sm:block flex items-center justify-between w-full"
+        >
           <Logo />
 
           <p class="mt-[14px] mb-6 hidden sm:block">
-            Используйте гибкие фреймворки, чтобы предоставить надежный синопсис
-            для стратегического совместного мышления, чтобы продвигать общее
-            ценностное предложение.
+            {{ text }}
           </p>
 
           <div class="social flex sm:space-x-7 space-x-4 items-center">
@@ -62,7 +65,7 @@
         </div>
 
         <div class="">
-          <h4 class="text-white text-lg font-medium">Страницы</h4>
+          <h4 class="text-white text-lg font-medium">{{ $t("f-pages") }}</h4>
 
           <ul class="text-base font-light space-y-[9px] mt-4">
             <li v-for="nav in navigation" :key="nav.name" class="">
@@ -74,7 +77,7 @@
         </div>
 
         <div class="md:col-span-2">
-          <h4 class="text-white text-lg font-medium">Контакты</h4>
+          <h4 class="text-white text-lg font-medium">{{ $t("f-contact") }}</h4>
 
           <ul class="mt-7 space-y-4">
             <li class="">
@@ -100,12 +103,9 @@
                 </div>
 
                 <div class="flex flex-col justify-center">
-                  Email
-                  <a
-                    class="text-white font-medium"
-                    href="mailto:contact@hvcargologistics.com"
-                  >
-                    contact@hvcargologistics.com
+                  {{ $t("f-email") }}
+                  <a class="text-white font-medium" :href="`mailto:${email}`">
+                    {{ email }}
                   </a>
                 </div>
               </div>
@@ -131,12 +131,9 @@
                 </div>
 
                 <div class="flex flex-col justify-center">
-                  Позвоните нам
-                  <a
-                    class="text-white font-medium"
-                    href="tel:contact@hvcargologistics.com"
-                  >
-                    (71) 112 36-49
+                  {{ $t("f-call") }}
+                  <a class="text-white font-medium" :href="`tel:${phone}`">
+                    {{ phone }}
                   </a>
                 </div>
               </div>
@@ -144,12 +141,9 @@
           </ul>
         </div>
       </div>
-
     </div>
-    <div class=" text-center mt-4">
-      © 2022-2023, Все права защищены
-    </div>
-  </div>
+    <div class="text-center mt-4">{{ $t("f-copyright") }}</div>
+  </section>
 </template>
 <script setup>
 import Logo from "@/components/common/logo.vue";
@@ -162,5 +156,17 @@ const navigation = [
   { name: "Партнеры", href: "/#partners" },
   { name: "Контакты", href: "/#contact" },
 ];
+
+// const phonee = await apiRequest("footer");
+const { data: footer } = await apiRequest("footer");
+
+const {
+  phone,
+  email,
+  text_ru: text,
+  twitter,
+  facebook,
+  linkedin,
+} = footer.value[0];
 </script>
 <style lang=""></style>

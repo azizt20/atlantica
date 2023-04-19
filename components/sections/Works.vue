@@ -1,25 +1,32 @@
 <template>
   <section id="works" class="px-[18px]">
-    <div class="container mx-auto ">
+    <div class="container mx-auto">
       <h3
         class="xl:text-5xl md:text-4xl text-2xl text-center md:mb-[52px] mb-8 font-semibold"
       >
-        Наши работы
+        
+      {{ $t('w-title') }}
+
       </h3>
 
       <div
         class="grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 md:gap-[30px] gap-4"
       >
-        <WorkCard v-for="i in 6" :key="i" />
+        <WorkCard
+          v-for="project in projects"
+          :project="project"
+          :key="project.id"
+        />
       </div>
 
-      <router-link to="/works"
+      <router-link
+        to="/works"
         class="w-40 h-10 flex items-center justify-center border border-primary rounded-sm text-primary font-medium mx-auto mt-6 md:mt-10 lg:mt-11"
       >
         Все работы
 
         <svg
-        class="ml-2"
+          class="ml-2"
           width="13"
           height="11"
           viewBox="0 0 13 11"
@@ -40,5 +47,7 @@
 </template>
 <script setup>
 import WorkCard from "../works/WorkCard.vue";
+const { data: projectsData } = await apiRequest(`projects/`);
+const { results: projects } = projectsData.value;
 </script>
 <style lang=""></style>
