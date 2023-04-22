@@ -1,12 +1,11 @@
 <template>
-  
-  <div v-html="html"></div>
+  <div class="unreset" v-html="html"></div>
 </template>
 <script setup>
 const props = defineProps({ html: String });
 </script>
-<style lang="scss" scoped>
+<style scoped>
 * {
-  all: revert;
+  all: unset;
 }
 </style>
