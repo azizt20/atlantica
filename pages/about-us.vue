@@ -1,6 +1,6 @@
 <template>
   <section class="px-[18px] py-10">
-    <div class=" container mx-auto">
+    <div class="container mx-auto">
       <img
         src="@/assets/image/temporarily/news-detail.png"
         alt=""
@@ -148,9 +148,17 @@
     </div>
   </section>
 
-  <ContactForm class=" mb-10" />
+  <ContactForm class="mb-10" />
 </template>
 <script setup>
 import ContactForm from "~/components/sections/ContactForm.vue";
+useServerSeoMeta({
+  title: "Atlantica",
+  ogTitle: "Atlantica",
+  description:
+    " Мы производственно-торговая компания с вертикальной интеграцией.",
+  ogDescription:
+    " Мы производственно-торговая компания с вертикальной интеграцией.",
+});
 </script>
 <style lang=""></style>

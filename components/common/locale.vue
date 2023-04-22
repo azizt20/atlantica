@@ -57,11 +57,12 @@ if (process.client) {
 const locales = [
   { name: "Русский", alpha: "ru" },
   { name: "English", alpha: "en" },
+  { name: "中国人", alpha: "zh" },
 ];
 </script>
 <style lang="scss" scoped>
 .locale {
-  background: rgba(22, 20, 19, 0.1);
+  background: #e7e7e7;
   border-radius: 2px;
   z-index: 30;
   @apply w-[110px] h-9 flex items-center justify-center relative text-black font-medium transition-all;
@@ -76,7 +77,7 @@ const locales = [
   }
 
   &__dropdown {
-    background: rgba(22, 20, 19, 0.1);
+    background: #e7e7e7;
     border-radius: 2px;
     @apply w-[110px]  py-2 absolute top-full border-t border-white text-black font-medium;
   }

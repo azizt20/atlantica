@@ -5,9 +5,13 @@
         <div class="grid lg:grid-cols-5 grid-cols-1 gap-16">
           <div class="lg:col-span-3">
             <h2 class="text-3xl font-semibold mb-5">
-              {{ service["name_" + $i18n.locale] }}
+              {{ service["name_" + $i18n.locale] || service.name_ru }}
             </h2>
-            <vHtml :html="service['description_' + $i18n.locale]" />
+            <vHtml
+              :html="
+                service['description_' + $i18n.locale] || service.description_ru
+              "
+            />
           </div>
           <div class="lg:col-span-2 lg:block hidden relative">
             <div class="bg-[#F4F4F4] rounded px-6 py-[22px] sticky top-10">
@@ -27,12 +31,15 @@
 
                 <div class="">
                   <h4 class="xl:text-xl lg:text-lg mb-1 font-medium">
-                    {{ service["name_" + $i18n.locale] }}
+                    {{ service["name_" + $i18n.locale] || service.name_ru }}
                   </h4>
                   <p
                     class="lg:text-sm text-xs font-light text-black text-opacity-70"
                   >
-                    {{ service["description_" + $i18n.locale] }}
+                    {{
+                      service["description_" + $i18n.locale] ||
+                      service.description_ru
+                    }}
                   </p>
                 </div>
               </router-link>
@@ -208,6 +215,14 @@ watch(
 );
 const { data: servicesData } = await apiRequest(`services/`);
 const { results: services } = servicesData.value;
+useServerSeoMeta({
+  title: `Atlantica - ${service.name_ru}`,
+  ogTitle: `Atlantica - ${service.name_ru}`,
+  description:
+    " Мы производственно-торговая компания с вертикальной интеграцией.",
+  ogDescription:
+    " Мы производственно-торговая компания с вертикальной интеграцией.",
+});
 </script>
 <style lang="scss" scoped>
 .slide {

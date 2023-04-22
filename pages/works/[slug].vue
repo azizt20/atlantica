@@ -19,14 +19,17 @@
             >
               <div class="">Клиент :</div>
               <div class="md:col-span-2">
-                {{ work["client_" + $i18n.locale] }}
+                {{ work["client_" + $i18n.locale] || work.client_ru }}
               </div>
               <div v-if="work.service.length" class="">Категория :</div>
               <div v-if="work.service.length" class="md:col-span-2">
                 <span v-for="(el, i) in work.service" :key="i">
                   <template v-if="i && i < work.service.length">, </template>
-                  <router-link class="hover:text-primary" :to="`/services/${el.id}`">
-                    {{ el["name_" + $i18n.locale] }}
+                  <router-link
+                    class="hover:text-primary"
+                    :to="`/services/${el.id}`"
+                  >
+                    {{ el["name_" + $i18n.locale] || work.name_ru }}
                   </router-link>
                 </span>
               </div>
@@ -47,14 +50,16 @@
     <div class="px-[18px] md:py-20 py-14">
       <div class="container mx-auto">
         <h2 class="text-3xl font-semibold mb-3 mt-5">
-          {{ work["name_" + $i18n.locale] }}
+          {{ work["name_" + $i18n.locale] || work.name_ru }}
         </h2>
 
-        <vHtml :html="work['description_' + $i18n.locale]" />
+        <vHtml
+          :html="work['description_' + $i18n.locale] || work.description_ru"
+        />
         <!-- <div
           class="unreset"
           style="all: revert"
-          v-html="work['description_' + $i18n.locale]"
+          v-html="work['description_' + $i18n.locale] || work.description_"
         ></div> -->
       </div>
     </div>
@@ -213,7 +218,7 @@ const fetchData = async () => {
   );
   service.value = data.value;
 };
-fetchData()
+fetchData();
 
 watch(
   () => router.currentRoute.value.params.slug,
@@ -223,6 +228,14 @@ watch(
 const { data: work } = await apiRequest(
   `projects/${router.currentRoute.value.params.slug}`
 );
+useServerSeoMeta({
+  title: `Atlantica - ${await work.value.name_ru}`,
+  ogTitle: `Atlantica - ${await work.value.name_ru}`,
+  description:
+    " Мы производственно-торговая компания с вертикальной интеграцией.",
+  ogDescription:
+    " Мы производственно-торговая компания с вертикальной интеграцией.",
+});
 </script>
 
 <style lang="scss" scoped>

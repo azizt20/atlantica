@@ -21,6 +21,11 @@ import News from "~/components/sections/News.vue";
 import Reviews from "~/components/sections/Reviews.vue";
 import Partners from "~/components/sections/Partners.vue";
 import ContactForm from "~/components/sections/ContactForm.vue";
-
+useServerSeoMeta({
+  title: 'Atlantica',
+  ogTitle: 'Atlantica',
+  description: ' Мы производственно-торговая компания с вертикальной интеграцией.',
+  ogDescription: ' Мы производственно-торговая компания с вертикальной интеграцией.',
+})
 </script>
 <style lang=""></style>

@@ -12,12 +12,12 @@
         <h4
           class="xl:text-xl md:text-base sm:text-sm text-xs text-white md:mb-1.5 sm:mb-1 font-medium"
         >
-          {{ props.project["name_" + $i18n.locale] }}
+          {{ props.project["name_" + $i18n.locale] || props.project.name_ru }}
         </h4>
         <p
           class="md:text-sm sm:text-xs text-[8px] font-light text-white text-opacity-70"
         >
-          {{ props.project["description_" + $i18n.locale] }}
+          {{ props.project["description_" + $i18n.locale] || props.project.description_ru }}
         </p>
       </div>
       <router-link

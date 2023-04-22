@@ -149,7 +149,7 @@
 import Logo from "@/components/common/logo.vue";
 
 const navigation = [
-  { name: "О компании", href: "/#about" },
+  { name: "О компании", href: "/about-us" },
   { name: "Услуги", href: "/#services" },
   { name: "Работы", href: "/works" },
   { name: "Новости", href: "/news" },

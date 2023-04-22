@@ -20,5 +20,13 @@
 import WorkCard from "@/components/works/WorkCard.vue";
 const { data: projectsData } = await apiRequest(`projects/`);
 const { results: projects } = projectsData.value;
+useServerSeoMeta({
+  title: "Atlantica - Наши работы ",
+  ogTitle: "Atlantica - Наши работы ",
+  description:
+    " Мы производственно-торговая компания с вертикальной интеграцией.",
+  ogDescription:
+    " Мы производственно-торговая компания с вертикальной интеграцией.",
+});
 </script>
 <style lang=""></style>

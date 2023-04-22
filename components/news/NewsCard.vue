@@ -11,7 +11,7 @@
       <p
         class="xl:mb-6 lg:mb-5 md:mb-4 mb-3 font-semibold xl:text-2xl lg:text-xl md:text-base sm:text-sm text-xs"
       >
-        {{ props.news["title_" + $i18n.locale] }}
+        {{ props.news["title_" + $i18n.locale] || props.news.title_ru }}
       </p>
       <span class="lg:text-xs sm:text-[10px] text-[8px] font-normal">
         {{ normalazeDate(props.news.created_at) }}
