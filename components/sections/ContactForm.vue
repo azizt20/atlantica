@@ -3,7 +3,7 @@
     <div class="grid md:grid-cols-2 grid-cols-1">
       <div
         class="bg-cover bg-top bg-no-repeat md:aspect-auto aspect-square sm:block hidden"
-        style="background-image: url('/_nuxt/assets/image/contact.png')"
+        style="background-image: url('/images/contact.png')"
       >
         <!-- <img src="" alt="" class="w-full" /> -->
       </div>
