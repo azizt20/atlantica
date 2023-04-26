@@ -4,13 +4,12 @@
       <h3
         class="xl:text-5xl md:text-4xl text-2xl text-center md:mb-[52px] mb-8 font-semibold"
       >
-        {{ $t('n-title') }}
-
+        {{ $t("n-title") }}
       </h3>
       <div
         class="grid 2xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 md:gap-7 sm:gap-4 gap-y-3 gap-x-2"
       >
-        <NewsCard :news="el" v-for="el in news" :key="el.id" />
+        <NewsCard :news="el" v-for="el in news.slice(0, count)" :key="el.id" />
       </div>
 
       <router-link
@@ -40,8 +39,17 @@
   </section>
 </template>
 <script setup>
+import { computed } from "vue";
 import NewsCard from "../news/NewsCard.vue";
-const { data: newsData } = await apiRequest(`news/`);
-const { count, results: news } = newsData.value;
+const { data: newsData } = await apiRequest(`news/?limit=8`);
+const { results: news } = newsData.value;
+const count = computed(() => {
+  if (process.client) {
+    if (window.innerWidth < 1280) {
+      return 6;
+    }
+  }
+  return 9;
+});
 </script>
 <style lang=""></style>
