@@ -15,8 +15,9 @@
             <h2 class="text-3xl font-semibold mb-3 mt-5">
               {{ news["title_" + $i18n.locale] || news.title_ru }}
             </h2>
-
-            <div class="" v-html="news['description_' + $i18n.locale] || news.description_ru"></div>
+            <vHtml
+              :html="news['description_' + $i18n.locale] || news.description_ru"
+            />
           </div>
           <div class="lg:col-span-2 lg:block hidden relative">
             <div class="bg-[#F4F4F4] rounded px-6 py-[22px] sticky top-10">
@@ -203,6 +204,7 @@ export default {
 </script>
 <script setup>
 import NewsCard from "@/components/news/NewsCard.vue";
+import vHtml from "@/components/common/vHtml.vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 const news = ref({});

@@ -10,7 +10,11 @@
           <p
             class="text-black text-opacity-70 lg:text-lg md:text-base text-sm font-normal mt-[14px]"
           >
-            <vHtml :html="slogan['description_' + $i18n.locale]" />
+            <vHtml
+              :html="
+                slogan['description_' + $i18n.locale] || slogan.description_ru
+              "
+            />
           </p>
         </div>
 

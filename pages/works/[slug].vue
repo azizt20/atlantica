@@ -56,11 +56,6 @@
         <vHtml
           :html="work['description_' + $i18n.locale] || work.description_ru"
         />
-        <!-- <div
-          class="unreset"
-          style="all: revert"
-          v-html="work['description_' + $i18n.locale] || work.description_"
-        ></div> -->
       </div>
     </div>
     <div class="pl-[18px] lg:pr-[18px]">
