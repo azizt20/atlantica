@@ -98,7 +98,11 @@
                 class="bg-white bg-opacity-10 rounded-[4px] focus:border focus:font-medium font-light border-primary outline-none w-full h-[42px] px-5 focus:bg-transparent"
                 :placeholder="$t('cf-p-fullName')"
               />
-              <span v-if="nameError && submitted" class="text-red-600 text-sm">{{ $t('name-error') }}</span>
+              <span
+                v-if="nameError && submitted"
+                class="text-red-600 text-sm"
+                >{{ $t("name-error") }}</span
+              >
             </div>
 
             <div class="mb-6">
@@ -111,7 +115,11 @@
                 class="bg-white bg-opacity-10 rounded-[4px] focus:border focus:font-medium font-light border-primary outline-none w-full h-[42px] px-5 focus:bg-transparent"
                 :placeholder="$t('cf-p-phone')"
               />
-              <span v-if="phoneError && submitted" class="text-red-600 text-sm">{{ $t('phone-error') }}</span>
+              <span
+                v-if="phoneError && submitted"
+                class="text-red-600 text-sm"
+                >{{ $t("phone-error") }}</span
+              >
             </div>
 
             <div class="mb-6">
@@ -124,7 +132,11 @@
                 class="bg-white bg-opacity-10 rounded-[4px] focus:border focus:font-medium font-light border-primary outline-none w-full h-[42px] px-5 focus:bg-transparent"
                 :placeholder="$t('cf-p-email')"
               />
-              <span v-if="emailError && submitted" class="text-red-600 text-sm">{{ $t('email-error') }}</span>
+              <span
+                v-if="emailError && submitted"
+                class="text-red-600 text-sm"
+                >{{ $t("email-error") }}</span
+              >
             </div>
 
             <div class="mb-6">
@@ -186,8 +198,7 @@ export default {
         this.emailError ||
         this.form.name === "" ||
         this.form.phone === "" ||
-        this.form.email === "" ||
-        this.form.message === ""
+        this.form.email === ""
       );
     },
   },
