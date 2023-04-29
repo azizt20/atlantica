@@ -21,7 +21,7 @@
             {{ service["name_" + $i18n.locale] || service["name_ru"] }}
           </h4>
           <p class="text-sm font-light text-black text-opacity-70">
-            {{ service["short_description_" + $i18n.locale] || service["description_ru"] }}
+            {{ service["short_description_" + $i18n.locale] || service["short_description_ru"] }}
           </p>
         </router-link>
       </div>
