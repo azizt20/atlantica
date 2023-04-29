@@ -17,7 +17,7 @@
         <p
           class="md:text-sm sm:text-xs text-[8px] font-light text-white text-opacity-70"
         >
-          {{ props.project["description_" + $i18n.locale] || props.project.description_ru }}
+          {{ props.project["short_description_" + $i18n.locale] || props.project.short_description_ru }}
         </p>
       </div>
       <router-link
