@@ -1,4 +1,4 @@
-import {isProduction} from "std-env";
+import { isProduction } from "std-env";
 
 export default defineNuxtConfig({
 
