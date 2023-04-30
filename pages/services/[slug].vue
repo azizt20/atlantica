@@ -37,8 +37,8 @@
                     class="lg:text-sm text-xs font-light text-black text-opacity-70"
                   >
                     {{
-                      service["description_" + $i18n.locale] ||
-                      service.description_ru
+                      service["short_description_" + $i18n.locale] ||
+                      service.short_description_ru
                     }}
                   </p>
                 </div>
