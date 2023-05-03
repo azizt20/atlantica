@@ -25,11 +25,11 @@
                 v-for="service in services"
                 :key="service.id"
               >
-                <div class="px-3">
+                <div class="px-3 w-[60px]">
                   <img :src="service.icon" alt="" class="" />
                 </div>
 
-                <div class="">
+                <div class=" w-[calc(100%-60px)]">
                   <h4 class="xl:text-xl lg:text-lg mb-1 font-medium">
                     {{ service["name_" + $i18n.locale] || service.name_ru }}
                   </h4>
