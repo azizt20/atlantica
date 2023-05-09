@@ -7,7 +7,7 @@
         <div class="w-full relative">
           <img :src="info.image_1" alt="" class="w-3/4" />
           <img
-            src="@/assets/image/temporarily/company-info-2.png"
+            :src="info.image_2"
             alt=""
             class="absolute top-[60%] right-0 border-8 rounded-lg w-[40%]"
           />
