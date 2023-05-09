@@ -2,7 +2,11 @@
   <div>
     <swiper @swiper="onSwiper" @slideChange="onSlideChange">
       <swiper-slide v-for="(banner, i) in banners" :key="i">
-        <img :src="banner.image" :alt="banner + i" class="w-full h-auto" />
+        <img
+          :src="banner[`image_${$i18n.locale}`]"
+          :alt="banner + i"
+          class="w-full h-auto"
+        />
       </swiper-slide>
     </swiper>
   </div>
