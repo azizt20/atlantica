@@ -14,7 +14,7 @@
             {{ text }}
           </p>
 
-          <div class="social flex sm:space-x-7 space-x-4 items-center">
+          <!-- <div class="social flex sm:space-x-7 space-x-4 items-center">
             <a href="#" class="">
               <svg
                 width="22"
@@ -61,7 +61,7 @@
                 />
               </svg>
             </a>
-          </div>
+          </div> -->
         </div>
 
         <div class="">
