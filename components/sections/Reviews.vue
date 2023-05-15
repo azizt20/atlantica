@@ -72,9 +72,9 @@
           },
         }"
       >
-        <swiper-slide v-for="(review, i) in reviews" :key="i" class="slide">
+        <swiper-slide v-for="(review, i) in reviews" :key="i" class="slide h-full">
           <div
-            class="bg-white border border-[#1614131A] rounded-lg lg:pt-[17px] lg:px-[25px] lg:pb-9 py-[14px] px-[17px]"
+            class="bg-white border border-[#1614131A] rounded-lg lg:pt-[17px] lg:px-[25px] lg:pb-9 py-[14px] px-[17px] h-full"
           >
             <div class="flex items-center lg:space-x-[18px] space-x-3">
               <div class="relative">
