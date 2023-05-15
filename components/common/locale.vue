@@ -42,17 +42,17 @@ const { t, locale } = useI18n();
 const language = ref({ name: "Русский", alpha: "ru" });
 
 const changeLocale = (el) => {
-  language.value = el;
-  locale.value = el.alpha;
-  localStorage.setItem("locale", JSON.stringify(el));
+  // language.value = el;
+  // locale.value = el.alpha;
+  // localStorage.setItem("locale", JSON.stringify(el));
 };
 
-if (process.client) {
-  if (localStorage.getItem("locale")) {
-    let storageLocale = JSON.parse(localStorage.getItem("locale"));
-    storageLocale.alpha == language.alpha || changeLocale(storageLocale);
-  }
-}
+// if (process.client) {
+//   if (localStorage.getItem("locale")) {
+//     let storageLocale = JSON.parse(localStorage.getItem("locale"));
+//     storageLocale.alpha == language.alpha || changeLocale(storageLocale);
+//   }
+// }
 
 const locales = [
   { name: "Русский", alpha: "ru" },
