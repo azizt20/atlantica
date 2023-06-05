@@ -4,8 +4,7 @@
       <h3
         class="xl:text-5xl md:text-4xl text-2xl text-center md:mb-[52px] mb-8 font-semibold"
       >
-      {{ $t('s-title') }}
-
+        {{ $t("s-title") }}
       </h3>
       <div
         class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 rounded-xl overflow-hidden border border-silver"
@@ -21,7 +20,10 @@
             {{ service["name_" + $i18n.locale] || service["name_ru"] }}
           </h4>
           <p class="text-sm font-light text-black text-opacity-70">
-            {{ service["short_description_" + $i18n.locale] || service["short_description_ru"] }}
+            {{
+              service["short_description_" + $i18n.locale] ||
+              service["short_description_ru"]
+            }}
           </p>
         </router-link>
       </div>

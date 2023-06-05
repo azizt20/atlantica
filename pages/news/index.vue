@@ -2,7 +2,7 @@
   <section class="px-[18px] pt-16 pb-36">
     <div class="container mx-auto">
       <h2 class="md:text-[42px] text-3xl font-semibold text-center mb-10">
-        Наши новости
+        {{ $t("n-title") }}
       </h2>
 
       <div

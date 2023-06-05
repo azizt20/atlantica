@@ -24,7 +24,7 @@
         :to="`/works/` + props.project.id"
         class="text-primary flex items-center font-medium md:text-base sm:text-sm text-[10px]"
       >
-        Подробнее
+      {{ $t("wc-more") }}
 
         <svg
           class="ml-2"

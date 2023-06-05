@@ -38,8 +38,8 @@
             :key="item.name"
             :to="item.href"
             class="font-semibold leading-6 text-gray-900"
-            >
-            {{ item.name }}
+          >
+            {{ item.name[$i18n.locale] }}
           </router-link>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -112,12 +112,12 @@ import Locale from "@/components/common/locale.vue";
 import { Dialog, DialogPanel } from "@headlessui/vue";
 
 const navigation = [
-  { name: "О компании", href: "/about-us" },
-  { name: "Услуги", href: "/#services" },
-  { name: "Работы", href: "/works" },
-  { name: "Новости", href: "/news" },
-  { name: "Партнеры", href: "/#partners" },
-  { name: "Контакты", href: "/#footer" },
+  { name: { ru: "О компании", en: "About us" }, href: "/about-us" },
+  { name: {ru:"Услуги", en:"Services"}, href: "/#services" },
+  { name: {ru:"Работы", en:"Works"}, href: "/works" },
+  { name: {ru:"Новости", en:"News"}, href: "/news" },
+  { name: {ru:"Партнеры", en:"Partners"}, href: "/#partners" },
+  { name: {ru:"Контакты", en:"Contacts"}, href: "/#footer" },
 ];
 
 const mobileMenuOpen = ref(false);

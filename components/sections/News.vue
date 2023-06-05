@@ -16,8 +16,7 @@
         to="/news"
         class="w-40 h-10 flex items-center justify-center border border-primary rounded-sm text-primary font-medium mx-auto mt-6 md:mt-10 lg:mt-11"
       >
-        Все новости
-
+        {{ $t("n-all") }}
         <svg
           class="ml-2"
           width="13"

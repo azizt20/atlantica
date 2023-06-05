@@ -70,7 +70,7 @@
           <ul class="text-base font-light space-y-[9px] mt-4">
             <li v-for="nav in navigation" :key="nav.name" class="">
               <router-link :to="nav.href">
-                {{ nav.name }}
+                {{ nav.name[$i18n.locale] }}
               </router-link>
             </li>
           </ul>
@@ -149,12 +149,12 @@
 import Logo from "@/components/common/logo.vue";
 
 const navigation = [
-  { name: "О компании", href: "/about-us" },
-  { name: "Услуги", href: "/#services" },
-  { name: "Работы", href: "/works" },
-  { name: "Новости", href: "/news" },
-  { name: "Партнеры", href: "/#partners" },
-  { name: "Контакты", href: "/#contact" },
+  { name: { ru: "О компании", en: "About us" }, href: "/about-us" },
+  { name: { ru: "Услуги", en: "Services" }, href: "/#services" },
+  { name: { ru: "Работы", en: "Works" }, href: "/works" },
+  { name: { ru: "Новости", en: "News" }, href: "/news" },
+  { name: { ru: "Партнеры", en: "Partners" }, href: "/#partners" },
+  { name: { ru: "Контакты", en: "Contacts" }, href: "/#footer" },
 ];
 
 // const phonee = await apiRequest("footer");

@@ -11,7 +11,9 @@
         <div class="xl:col-span-7 col-span-6 flex items-center justify-center">
           <div class="">
             <h3 class="font-semibold md:text-2xl text-xl md:mb-10 mb-5">
-              Детали проекта
+              
+          {{ $t("w-pd") }}
+
             </h3>
 
             <div
@@ -64,7 +66,7 @@
           <h3
             class="xl:text-5xl md:text-4xl text-2xl text-center font-semibold"
           >
-            Похожие проекты
+          {{ $t("w-sp") }}
           </h3>
           <div class="flex items-center space-x-5" v-if="false">
             <button
