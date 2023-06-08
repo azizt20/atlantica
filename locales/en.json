@@ -5,7 +5,7 @@
   "f-contact": "Contacts",
   "f-email": "Email",
   "f-call": "Call us",
-  "f-copyright": "© 2018-2023, All rights reserved",
+  "f-copyright": "© 2018-2023. All rights reserved",
   "cf-title": "How can we help you?",
   "cf-text": "Lorem ipsum dolor sit amet consectetur. Ultrices interdum vulputate sollicitudin consectetur pharetra viverra eget nisl.",
   "cf-fullName": "Full name",
@@ -20,8 +20,8 @@
   "w-title": "Our works",
   "w-all": "All works",
   "wc-more": "More",
-  "w-sp":"Similar projects",
-  "w-pd":"Зroject details",
+  "w-sp": "Similar projects",
+  "w-pd": "Project details",
   "s-title": "Our services",
   "n-title": "Our news",
   "n-all": "All news",
@@ -34,5 +34,11 @@
   "contact-shortly": "Our consultants will contact you shortly",
   "name-error": "Enter your name",
   "phone-error": "Enter phone number",
-  "email-error": "Enter email"
+  "email-error": "Enter email",
+  "Completed": "Completed",
+  "In-process": "In process",
+  "Status": "Status",
+  "Date": "Date",
+  "Category": "Category",
+  "Client": "Client"
 }

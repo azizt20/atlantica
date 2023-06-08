@@ -11,19 +11,19 @@
         <div class="xl:col-span-7 col-span-6 flex items-center justify-center">
           <div class="">
             <h3 class="font-semibold md:text-2xl text-xl md:mb-10 mb-5">
-              
-          {{ $t("w-pd") }}
-
+              {{ $t("w-pd") }}
             </h3>
 
             <div
               class="grid md:grid-cols-3 grid-cols-2 md:gap-5 gap-3 text-sm sm:text-base"
             >
-              <div class="">Клиент :</div>
+              <div class="">{{ $t("Client") }} :</div>
               <div class="md:col-span-2">
                 {{ work["client_" + $i18n.locale] || work.client_ru }}
               </div>
-              <div v-if="work.service.length" class="">Категория :</div>
+              <div v-if="work.service.length" class="">
+                {{ $t("Category") }} :
+              </div>
               <div v-if="work.service.length" class="md:col-span-2">
                 <span v-for="(el, i) in work.service" :key="i">
                   <template v-if="i && i < work.service.length">, </template>
@@ -35,11 +35,11 @@
                   </router-link>
                 </span>
               </div>
-              <div class="">Дата :</div>
+              <div class="">{{ $t("Date") }} :</div>
               <div class="md:col-span-2">
                 {{ work.date }}
               </div>
-              <div class="">статус :</div>
+              <div class="">{{ $t("Status") }} :</div>
               <div class="md:col-span-2">
                 {{ work.status }}
               </div>
@@ -66,7 +66,7 @@
           <h3
             class="xl:text-5xl md:text-4xl text-2xl text-center font-semibold"
           >
-          {{ $t("w-sp") }}
+            {{ $t("w-sp") }}
           </h3>
           <div class="flex items-center space-x-5" v-if="false">
             <button
